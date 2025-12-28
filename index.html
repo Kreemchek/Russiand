@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Золотое Сердце - Музыкальная Группа</title>
+    <meta name="description" content="Золотое сердце — группа с глубокими, искренними песнями о любви, преданности и поддержке. Традиционный фолк и современные мелодии.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo">
+                    <img src="telegram-cloud-photo-size-2-5364336169442808841-y.jpg" alt="Золотое Сердце">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О группе</a></li>
+                    <li><a href="#music">Музыка</a></li>
+                    <li><a href="#artists">Ценности</a></li>
+                    <li><a href="#contact">Концерты</a></li>
+                </ul>
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="telegram-cloud-photo-size-2-5364336169442808844-x.jpg" alt="Золотое Сердце">
+            </div>
+            <h1 class="hero-title">Музыка с душой</h1>
+            <p class="hero-subtitle">Глубокие, искренние песни о любви, преданности и поддержке</p>
+            <div class="hero-buttons">
+                <a href="#music" class="btn btn-primary">Послушать музыку</a>
+                <a href="#contact" class="btn btn-secondary">Заказать концерт</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Featured Release Section -->
+    <section class="featured-release">
+        <div class="container">
+            <div class="featured-content">
+                <div class="featured-image">
+                    <img src="обложка пести ЭХ, РОССИЯ 1.jpg" alt="Эх, Россия">
+                    <div class="featured-play">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="featured-info">
+                    <span class="featured-badge">Новый сингл</span>
+                    <h2>Эх, Россия</h2>
+                    <p class="featured-description">Проникновенная песня о любви к Родине, её бескрайних просторах и душе русского народа. Сочетание традиционных мотивов с современным звучанием.</p>
+                    <div class="featured-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Исполнитель</span>
+                            <span class="meta-value">Золотое Сердце</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Жанр</span>
+                            <span class="meta-value">Современный фолк</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Год</span>
+                            <span class="meta-value">2025</span>
+                        </div>
+                    </div>
+                    <div class="audio-player-section">
+                        <h3>Прослушать отрывок:</h3>
+                        <div class="custom-audio-player">
+                            <button class="play-pause-btn" id="playPauseBtn">
+                                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                </svg>
+                            </button>
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progressBar"></div>
+                                <input type="range" id="progressSlider" min="0" max="100" value="0" step="0.1">
+                            </div>
+                            <div class="time-display">
+                                <span id="currentTime">0:00</span>
+                                <span id="duration">0:00</span>
+                            </div>
+                            <button class="volume-btn" id="volumeBtn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                                </svg>
+                        </button>
+                            <audio id="audioPlayer" src="preview.mp3"></audio>
+                        </div>
+                    </div>
+                    <div class="streaming-platforms">
+                        <h3>Слушайте на всех платформах:</h3>
+                        <div class="platform-links">
+                            <a href="https://open.spotify.com/album/5u1y2E9REDzBvUf1Y5cUDB" target="_blank" class="platform-link spotify">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                </svg>
+                                <span>Spotify</span>
+                            </a>
+                            <a href="https://music.apple.com/ru/album/1862302320?mt=1&at=1000lqjf&ct=bq&app=music" target="_blank" class="platform-link apple">
+                                <img src="image.png" alt="Apple Music" class="platform-icon">
+                                <span>Apple Music</span>
+                            </a>
+                            <a href="https://music.apple.com/ru/album/1862302320?app=itunes&mt=1&at=1000lqjf&ct=bq&Is=1&ls=1" target="_blank" class="platform-link itunes">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                                </svg>
+                                <span>iTunes</span>
+                            </a>
+                            <a href="https://music.yandex.ru/album/39445549?utm_source=bandlink&utm_medium=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&utm_campaign=%D0%AD%D1%85%2C%20%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F&utm_term=ACfW3" target="_blank" class="platform-link yandex">
+                                <img src="image copy.png" alt="Яндекс Музыка" class="platform-icon">
+                                <span>Яндекс Музыка</span>
+                            </a>
+                            <a href="https://music.vk.com/link/aZ2Gn" target="_blank" class="platform-link vk">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.441 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.118-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+                                </svg>
+                                <span>VK Музыка</span>
+                            </a>
+                            <a href="https://music.mts.ru/album/39445549" target="_blank" class="platform-link mts">
+                                <img src="kion_music_icon_gradient.png" alt="КИОН Музыка" class="platform-icon">
+                                <span>КИОН Музыка</span>
+                            </a>
+                            <a href="https://www.deezer.com/album/880633602" target="_blank" class="platform-link deezer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.81 4.16v3.03h5.19V4.16zM18.81 9.47V12.5h5.19V9.47zM18.81 14.78v3.03h5.19v-3.03zM12.04 9.47V12.5h5.19V9.47zM12.04 14.78v3.03h5.19v-3.03zM12.04 20.09v3.03h5.19v-3.03zM5.27 14.78v3.03h5.19v-3.03zM5.27 20.09v3.03h5.19v-3.03zM0 14.78v3.03h3.59v-3.03zM0 20.09v3.03h3.59v-3.03z"/>
+                                </svg>
+                                <span>Deezer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">О группе</span>
+                <h2 class="section-title">Золотое Сердце</h2>
+                <p class="section-subtitle">Музыкальная группа</p>
+            </div>
+            <div class="about-content">
+            <div class="about-text">
+                <p class="lead">«Золотое сердце» — группа с глубокими, искренними песнями о любви, преданности и поддержке.</p>
+                <p>Наша музыка сочетает традиционный фолк и современные мелодии, делая творчество доступным и душевным. Это музыка с душой, раскрывающая глубину чувств и смысл, что ценят настоящие поклонники.</p>
+                <p>Каждая наша песня — это история, рассказанная от сердца к сердцу. Мы верим в силу музыки, способную объединять людей и дарить тепло даже в самые холодные дни.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Заказать концерт</a>
+                    <a href="#music" class="btn btn-outline">Наша музыка</a>
+                </div>
+            </div>
+                <div class="about-image">
+                    <div class="image-decoration"></div>
+                    <img src="telegram-cloud-photo-size-2-5364336169442808841-y.jpg" alt="Логотип">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Наша музыка</span>
+                <h2 class="section-title">Последние релизы</h2>
+            </div>
+            <div class="music-grid">
+                <div class="music-card featured">
+                    <div class="music-cover" style="background-image: url('обложка пести ЭХ, РОССИЯ 1.jpg');">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Эх, Россия</h3>
+                    <p>Новый сингл</p>
+                    <span class="release-badge">Новинка</span>
+                </div>
+                <div class="music-card">
+                    <div class="music-cover">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Родные просторы</h3>
+                    <p>Традиционная коллекция</p>
+                </div>
+                <div class="music-card">
+                    <div class="music-cover">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Вечерние песни</h3>
+                    <p>Акустический альбом</p>
+                </div>
+                <div class="music-card">
+                    <div class="music-cover">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Сердце России</h3>
+                    <p>Современный фолк</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="artists" class="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Наши ценности</span>
+                <h2 class="section-title">Что делает нашу музыку особенной</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Искренность</h3>
+                    <p>Каждая песня — это настоящая эмоция, пережитая и прочувствованная нами</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎵</div>
+                    <h3>Традиции</h3>
+                    <p>Мы бережно храним фолк-традиции, придавая им современное звучание</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Единство</h3>
+                    <p>Наша музыка объединяет людей, создавая особую атмосферу на концертах</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Концерты и сотрудничество</h2>
+                    <p>Хотите пригласить нас на концерт или обсудить сотрудничество? Мы всегда рады новым проектам и встречам с нашими слушателями!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <a href="mailto:Zoloto-serdce@yandex.ru" style="color: inherit;">Zoloto-serdce@yandex.ru</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            <span>Концерты по всей России</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>Россия</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 008.44-9.9c0-5.53-4.5-10.02-10-10.02z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.589 6.686a4.793 4.793 0 01-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 01-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 013.183-4.51v-3.5a6.329 6.329 0 00-5.394 10.692 6.33 6.33 0 0010.857-4.424V8.687a8.182 8.182 0 004.773 1.526V6.79a4.831 4.831 0 01-1.003-.104z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="mailto:Zoloto-serdce@yandex.ru" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Ваш Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Телефон (необязательно)">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Расскажите о вашем мероприятии или предложении" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить запрос</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="telegram-cloud-photo-size-2-5364336169442808841-y.jpg" alt="Золотое Сердце">
+                    <p>Музыка с душой</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">О группе</a></li>
+                        <li><a href="#music">Музыка</a></li>
+                        <li><a href="#contact">Концерты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><a href="mailto:Zoloto-serdce@yandex.ru">Email для концертов</a></li>
+                        <li><a href="#contact">Заказать выступление</a></li>
+                        <li><a href="#music">Слушать музыку</a></li>
+                        <li><a href="#about">Узнать больше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Подписка</h4>
+                    <p>Получайте новости о релизах</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email">
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Золотое Сердце. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
