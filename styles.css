@@ -909,16 +909,19 @@ section {
 }
 
 .release-badge {
-    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
     background: var(--gold);
     color: var(--black);
-    padding: 5px 15px;
-    border-radius: 20px;
+    padding: 8px 18px;
+    border-radius: 25px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 10px;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
 }
 
 .play-button {

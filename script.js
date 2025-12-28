@@ -197,37 +197,83 @@ function showNotification(message, type = 'info') {
 // ============================================
 
 const musicCards = document.querySelectorAll('.music-card');
+const ehRossiyaCard = document.getElementById('ehRossiyaCard');
+const mainAudioPlayer = document.getElementById('audioPlayer');
 
-musicCards.forEach(card => {
-    card.addEventListener('click', function() {
-        const title = this.querySelector('h3').textContent;
-        const artist = this.querySelector('p').textContent;
+// Special handling for "Эх, Россия" card - play the actual preview
+if (ehRossiyaCard && mainAudioPlayer) {
+    ehRossiyaCard.addEventListener('click', function(e) {
+        e.stopPropagation();
         
-        // Highlight active card
-        musicCards.forEach(c => c.style.border = 'none');
-        this.style.border = '2px solid var(--gold)';
-        
-        // Show playing notification
-        showNotification(`Воспроизведение: ${title} - ${artist}`, 'success');
-        
-        // Animate play button
-        const playButton = this.querySelector('.play-button');
-        playButton.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-            </svg>
-        `;
-        
-        // Reset after 2 seconds
-        setTimeout(() => {
+        // Play or pause the audio
+        if (mainAudioPlayer.paused) {
+            mainAudioPlayer.play();
+            showNotification('Воспроизведение: Эх, Россия', 'success');
+            
+            // Animate play button
+            const playButton = this.querySelector('.play-button');
+            playButton.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+            `;
+            
+            // Update when audio ends
+            mainAudioPlayer.addEventListener('ended', function resetButton() {
+                playButton.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
+                mainAudioPlayer.removeEventListener('ended', resetButton);
+            });
+        } else {
+            mainAudioPlayer.pause();
+            const playButton = this.querySelector('.play-button');
             playButton.innerHTML = `
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z"/>
                 </svg>
             `;
-            this.style.border = 'none';
-        }, 2000);
+        }
     });
+}
+
+// For other music cards - just show notification
+musicCards.forEach(card => {
+    if (card.id !== 'ehRossiyaCard') {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            const artist = this.querySelector('p').textContent;
+            
+            // Highlight active card
+            musicCards.forEach(c => c.style.border = 'none');
+            this.style.border = '2px solid var(--gold)';
+            
+            // Show playing notification
+            showNotification(`Воспроизведение: ${title} - ${artist}`, 'success');
+            
+            // Animate play button
+            const playButton = this.querySelector('.play-button');
+            if (playButton) {
+                playButton.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                `;
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    playButton.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    `;
+                    this.style.border = 'none';
+                }, 2000);
+            }
+        });
+    }
 });
 
 // ============================================
