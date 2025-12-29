@@ -288,39 +288,6 @@ img {
     transform: translateY(-3px);
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--gold);
-    border-radius: 20px;
-    position: relative;
-}
-
-.mouse::before {
-    content: '';
-    width: 6px;
-    height: 10px;
-    background: var(--gold);
-    border-radius: 3px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-}
-
 /* ============================================
    SECTION STYLES
    ============================================ */
